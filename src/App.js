@@ -13,10 +13,10 @@ function App() {
   return (
     <div className={classes.root}>
       <NavBar />
-      <About  title="About Me" id="about" dark= {true}/>
+      <About  title="About Me" id="about" dark= {true} />
       <Skills title="My programming skills"  id="skills" dark= {false} />
 
-      <MyWork title="My Works " id="work" dark= {true} />
+      <MyWork title="My Proyects " id="work" dark= {true} />
       <Contact title="Contact me"  id="contact" dark= {false} />
     </div>
   );
@@ -24,8 +24,12 @@ function App() {
 
 
 const useStyles = makeStyles((theme)=> ({
-  root: {    
-  }
+  root: {
+    textAlign: 'center',
+  },
+  title: {
+    marginTop: '1.5rem',
+  },
   }))
 
 

@@ -1,7 +1,7 @@
-import { AppBar, colors, Divider, Drawer, IconButton, List, makeStyles, Toolbar } from '@material-ui/core'
+import { AppBar, Divider, Drawer, IconButton, List, makeStyles, Toolbar } from '@material-ui/core'
 import React, { useState } from 'react'
 import logo from '../images/Logo.png'
-import {Link, animateScroll as scroll} from "react-scroll"
+import { Link, animateScroll as scroll } from "react-scroll"
 
 import { ContactMail, EmojiObjectsTwoTone, InfoTwoTone, Build } from '@material-ui/icons'
 import MenuIcon from '@material-ui/icons/Menu'
@@ -33,7 +33,7 @@ const links = [
 const NavBar = () => {
   const classes = useStyles();
   const [open, setOpen] = useState(false);
-  
+
   return (
     <>
       <AppBar position="sticky" className={classes.root}>
@@ -57,15 +57,16 @@ const NavBar = () => {
           <IconButton edge="end"
             className={classes.menubutton}
             onClick={() => setOpen(!open)}
+            aria-label="menu"
           >
             <MenuIcon fontSize='large' />
           </IconButton>
         </Toolbar>
       </AppBar>
-      <Drawer anchor='right' open={open} onClose={() => setOpen(false)}>
+      <Drawer anchor='right' open={open} onClose={() => setOpen(false)} classes={{ paper: classes.drawerPaper }}>
         <div className={classes.drawerHeader}>
           <IconButton onClick={() => setOpen(false)}>
-            <CancelIcon  className={classes.cancelIcon}fontSize='medium' />
+            <CancelIcon className={classes.cancelIcon} fontSize='medium' />
           </IconButton>
         </div>
         <Divider />
@@ -73,7 +74,6 @@ const NavBar = () => {
           {
             links.map(({ id, text, icon }, index) => (
               <Link key={index}
-                
                 to={id}
                 spy={true}
                 activeClass="active"
@@ -84,7 +84,7 @@ const NavBar = () => {
                 {icon}
                 <span className={classes.linkText}>
                   {text}
-                  </span>
+                </span>
               </Link>
             ))
           }
@@ -136,9 +136,6 @@ const useStyles = makeStyles((theme) => ({
     [theme.breakpoints.down("sm")]: {
       display: "block",
       color: "grey",
-      position: "absolute",
-      top: 0,
-      right: 10,
     }
   },
   drawerHeader: {
@@ -146,35 +143,32 @@ const useStyles = makeStyles((theme) => ({
     justifyContent: 'flex-end',
     padding: theme.spacing(1),
   },
-  cancelIcon:{
-    color:"red",
-    position:"absolute",
-    top:0,
-    right: 4,
-    
+  cancelIcon: {
+    color: "red",
   },
   drawerLink: {
-    width:'40vh',
-    [theme.breakpoints.down("sm")]: {
-     width:'60vh'
-    },
+    width: '80%',
     display: 'flex',
     alignItems: 'center',
-    padding: theme.spacing(6, 0, 0, 4),
+    padding: theme.spacing(2, 0),
     textDecoration: 'none',
     color: '#333',
-    cursor:'pointer',
-    fontWeight:'bold',
-  
+    cursor: 'pointer',
+    fontWeight: 'bold',
     '&:hover': {
       backgroundColor: theme.palette.action.hover,
-      color:'grey',
+      color: 'grey',
     },
   },
   linkText: {
-    marginLeft: theme.spacing(2), 
-  }
-  
+    marginLeft: theme.spacing(2),
+  },
+  drawerPaper: {
+    width: '200px',
+    [theme.breakpoints.down("sm")]: {
+      width: '40%',
+    },
+  },
 }));
 
 export default NavBar;
