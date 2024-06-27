@@ -56,8 +56,8 @@ const Technologies = () => {
             year: "2024",
             src: pythonlogo,
             title: "Python",
-            stars: 4,
-            topics: ["Data", "List", "Bucles", "POO", "COnditionals",],
+            stars: 3,
+            topics: ["Data", "List", "Bucles", "POO", "Conditionals",],
         },
         {
             year: "2024",

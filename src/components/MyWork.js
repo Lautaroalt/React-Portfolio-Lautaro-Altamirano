@@ -3,7 +3,7 @@ import { makeStyles, Typography, Card, CardContent, CardMedia, Button, Grid } fr
 import bodega from "../images/bodega.jpg"
 import burger from "../images/burger.jpg"
 import Westcoast from "../images/westcoast.png"
-
+import coffee from "../images/mendozacoffee.jpg"
 
 const MyWork = ({ title, dark, id }) => {
   const classes = useStyles();
@@ -25,6 +25,12 @@ const MyWork = ({ title, dark, id }) => {
       image: bodega,
       description: "Landing Page about a Winery in Mendoza.",
       link: "https://lautaroalt.github.io/LandingPage-Winery/"
+    },
+    {
+      title: "MendozaCoffee",
+      image: coffee,
+      description: "Page made with react, based on a cafe located in Mendoza",
+      link: "https://mendozacoffee.netlify.app/"
     }
   ];
 
